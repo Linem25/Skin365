@@ -1,0 +1,45 @@
+/* Header & Banner trên cùng */
+header {
+    position: sticky;
+    top: 0;
+    width: 100%; /* Nó sẽ chiếm 100% của 900px */
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .banner {
+    background-color: rgb(224, 209, 70);
+    color: black;
+    text-align: center;
+    padding: 5px 0 1px 0;
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+header .banner p {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.logo img {
+    width: 110px; /* Giảm nhẹ kích thước để cân đối */
+    height: auto;
+}
+
+.icons {
+    display: flex;
+    gap: 20px;
+}
+
+.icons i {
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 10px;
+}

@@ -1,0 +1,30 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%; /* Đảm bảo phủ hết chiều ngang */
+    max-width: 900px; /* Khớp với container chính của bạn */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-top: 1px solid #f0f0f0;
+    padding: 15px 0; /* Tăng padding trên dưới để footer cao hơn */
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05); /* Thêm đổ bóng nhẹ phía trên cho sang */
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: space-evenly; /* Chia đều khoảng cách đẹp hơn around */
+    align-items: center;
+}
+
+.footer-icons i {
+    font-size: 24px; /* Tăng lên 24px cho bằng icon ở header */
+    color: #333;    /* Màu đậm hơn một chút cho rõ nét */
+    transition: transform 0.2s; /* Thêm hiệu ứng khi chạm vào */
+}
+
+.footer-icons i:active {
+    transform: scale(1.2); /* Hiệu ứng nhấn trên điện thoại */
+    color: #ffd700; /* Đổi màu khi nhấn (tùy chọn) */
+}
