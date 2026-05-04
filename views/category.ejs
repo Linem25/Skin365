@@ -25,28 +25,36 @@
                             -<%= p.sale_percent %>%
                         </div>
                         <% } %>
-                        <img src="<%= p.image_url %>" class="card-img-top" alt="<%= p.name %>" style="height: 160px; object-fit: cover;">
+                       <img src="<%= p.image_url %>" class="card-img-top" alt="<%= p.name %>" style="height: 160px; object-fit: cover;">
                         <div class="card-body p-2 text-center">
                             <p class="card-title mb-1 fw-bold" style="font-size: 14px;"><%= p.name %></p>
-                            <% if (p.sale_percent > 0) { %>
-
-                                <p class="text-muted small mb-0" style="text-decoration: line-through;">
-                                <%= Number(p.price).toLocaleString() %>đ
-                                </p>
-
-                                <p class="text-danger fw-bold small">
-                                <%= Number(p.price * (100 - p.sale_percent) / 100).toLocaleString() %>đ
-                                </p>
-
-                                <% } else { %>
-
-                                <p class="text-danger fw-bold small">
-                                <%= Number(p.price).toLocaleString() %>đ
-                                </p>
-
-                                <% } %>
                             
+                            <% 
+                                // 1. Tính toán giá cuối cùng (giá đã giảm nếu có)
+                                let finalPrice = p.sale_percent > 0 ? (p.price * (100 - p.sale_percent) / 100) : p.price; 
+                            %>
+
+                            <% if (p.sale_percent > 0) { %>
+                                <p class="text-muted small mb-0" style="text-decoration: line-through;">
+                                    <%= Number(p.price).toLocaleString() %>đ
+                                </p>
+                                <p class="text-danger fw-bold small">
+                                    <%= Number(finalPrice).toLocaleString() %>đ
+                                </p>
+                            <% } else { %>
+                                <p class="text-danger fw-bold small">
+                                    <%= Number(p.price).toLocaleString() %>đ
+                                </p>
+                            <% } %>
+
+                            <!-- 2. Truyền finalPrice vào hàm addToCart -->
+                            <!-- Trong file category.ejs -->
+                            <button class="btn btn-primary btn-sm mt-2 w-100" 
+                                    onclick="addToCart('<%= p.id %>', '<%= p.name %>', <%= finalPrice %>, '<%= p.image_url %>', <%= p.price %>)">
+                                Thêm vào giỏ
+                            </button>
                         </div>
+                        
                     </div>
                 <% }) %>
             <% } else { %>

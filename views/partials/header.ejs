@@ -8,7 +8,12 @@
     <div class="logo"><a href="/"><img src="/image/logo.png" alt="Logo"></a></div>
     <div class="icons">
         <i class="bi bi-search"></i>
-        <i class="bi bi-cart"></i>
+        <!-- Giỏ hàng có bộ đếm -->
+        <a href="/cart" class="cart-icon-wrapper">
+            <i class="bi bi-cart"></i>
+            <span id="cart-count">0</span>
+        </a>
     </div>
 </nav>
 </header>
+<script src="/js/cart.js"></script>
